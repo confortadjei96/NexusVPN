@@ -1,0 +1,119 @@
+﻿*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --bg:#0f1724;
+    --card:#ffffff;
+    --muted:#6b7280;
+    --accent:#0b74ff;
+    --accent-2:#0b9cff;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+    margin:0;
+    font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,"Nimbus Sans L",sans-serif;
+    background: radial-gradient(1200px 600px at 10% 10%, rgba(11,148,255,0.06), transparent 8%), radial-gradient(900px 400px at 90% 90%, rgba(11,156,255,0.03), transparent 12%), linear-gradient(180deg,#f7f9fc 0%, #fff 100%);
+    color:#0b1220;
+    -webkit-font-smoothing:antialiased;
+}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.site-header{background:rgba(255,255,255,0.7);backdrop-filter:blur(6px);padding:14px 0;position:sticky;top:0;z-index:60;border-bottom:1px solid rgba(15,17,24,0.04)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-weight:700;color:var(--accent);font-size:1.25rem}
+.nav a{color:var(--muted);text-decoration:none;margin-left:18px;padding:8px 10px;border-radius:8px}
+.nav a:hover{color:#fff;background:linear-gradient(90deg,var(--accent),var(--accent-2));}
+
+/* Make header logo stand out */
+.logo{font-size:1.4rem;letter-spacing:0.6px}
+
+/* Skip link */
+.skip-link{position:absolute;left:8px;top:8px;background:#fff;color:var(--accent);padding:8px 12px;border-radius:6px;z-index:1000;transform:translateY(-120%);transition:transform .18s ease-in-out}
+.skip-link:focus{transform:translateY(0);outline:2px solid rgba(11,116,255,0.12)}
+
+/* Mobile nav toggle */
+.nav-toggle{display:none;background:transparent;border:1px solid transparent;padding:8px 10px;border-radius:6px;font-size:1.05rem;cursor:pointer}
+
+
+.hero{padding:64px 0;background:linear-gradient(90deg,#eef6ff 0%, #fff 100%)}
+.hero-inner{text-align:left;max-width:900px}
+.hero h1{font-size:2.4rem;line-height:1.05;margin:0 0 12px}
+.lead{color:var(--muted);margin:0 0 18px}
+.hero-cta{display:flex;gap:12px;margin-top:8px}
+
+.btn{display:inline-block;padding:12px 18px;border-radius:10px;border:1px solid transparent;background:transparent;color:var(--accent);cursor:pointer;text-decoration:none;transition:all .18s ease}
+.btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 8px 24px rgba(11,116,255,0.12)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(2,6,23,0.06)}
+.btn-primary:hover{box-shadow:0 18px 40px rgba(11,116,255,0.14)}
+.btn:focus{outline:3px solid rgba(11,116,255,0.12)}
+
+.features{padding:48px 0}
+.features h2{margin-bottom:18px}
+.features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.feature{background:#fff;padding:18px;border-radius:8px;box-shadow:0 6px 18px rgba(11,17,26,0.06)}
+.feature h3{margin:0 0 6px;display:flex;align-items:center;gap:10px}
+.feature h3::before{display:inline-block;font-size:1.25rem}
+.features-grid .feature:nth-child(1) h3::before{content:"🔒"}
+.features-grid .feature:nth-child(2) h3::before{content:"⚡"}
+.features-grid .feature:nth-child(3) h3::before{content:"🖥️"}
+.features-grid .feature:nth-child(4) h3::before{content:"🛡️"}
+
+.pricing{padding:48px 0}
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{background:#fff;padding:22px;border-radius:12px;box-shadow:0 8px 26px rgba(11,17,26,0.06);position:relative}
+.card.recommended{border:0;transform:translateY(-6px);box-shadow:0 18px 40px rgba(11,116,255,0.08)}
+.card.recommended::before{content:"Recommended";position:absolute;right:12px;top:12px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;padding:6px 10px;border-radius:999px;font-size:0.75rem}
+.price{font-size:1.5rem;margin:8px 0}
+.price span{font-size:0.9rem;color:var(--muted)}
+
+.download{padding:40px 0}
+.download-links{display:flex;gap:12px}
+
+.contact{padding:32px 0}
+
+.site-footer{border-top:1px solid #eceef2;padding:16px 0;margin-top:24px;background:transparent}
+.site-footer small{color:var(--muted)}
+
+/* Toast message */
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:24px;background:#111827;color:#fff;padding:10px 16px;border-radius:8px;box-shadow:0 6px 20px rgba(2,6,23,0.5);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+.toast.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(-6px)}
+
+/* Modal (simple) */
+.modal[hidden]{display:none}
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:1200}
+.modal-overlay{position:absolute;inset:0;background:rgba(2,6,23,0.45)}
+.modal-content{position:relative;max-width:520px;width:100%;background:#fff;padding:20px;border-radius:10px;box-shadow:0 20px 50px rgba(2,6,23,0.25);z-index:2}
+.modal-close{position:absolute;right:12px;top:10px;border:0;background:transparent;font-size:1.25rem;cursor:pointer}
+.form-row{display:block;margin:10px 0}
+.form-row input,.form-row select{width:100%;padding:10px;border-radius:6px;border:1px solid #e6e9ee}
+.card-placeholder{padding:12px;border-radius:6px;background:#f7f9fc;color:var(--muted);border:1px dashed #e6e9ee}
+.modal-result{margin-top:12px;padding:12px;border-radius:8px;background:#f1f9f6;color:#064e3b}
+
+/* Card fields layout */
+.card-grid{display:flex;gap:12px}
+.card-grid label{flex:1}
+@media (max-width:520px){
+    .card-grid{flex-direction:column}
+}
+
+@media (max-width:800px){
+    .features-grid{grid-template-columns:1fr}
+    .pricing-grid{grid-template-columns:1fr}
+    .nav{display:block}
+    .nav-toggle{display:inline-block}
+    .hero h1{font-size:1.5rem}
+
+    /* Off-canvas mobile nav */
+    .nav{position:fixed;right:0;top:0;height:100%;width:280px;max-width:85vw;transform:translateX(100%);transition:transform .28s cubic-bezier(.2,.9,.2,1);background:#fff;padding:72px 20px 20px;box-shadow: -8px 0 30px rgba(2,6,23,0.08);border-left:1px solid rgba(15,17,24,0.03);z-index:80}
+    .nav a{display:block;margin:8px 0;padding:10px;border-radius:8px;color:var(--muted)}
+    .nav a:hover{color:var(--accent);background:rgba(11,116,255,0.06)}
+    .nav.open{transform:translateX(0)}
+
+    /* Backdrop behind mobile nav */
+    .nav-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.45);opacity:0;pointer-events:none;transition:opacity .22s ease;z-index:70}
+    .nav-backdrop.show{opacity:1;pointer-events:auto}
+}
+
+/* Small utilities */
+.center{text-align:center}
